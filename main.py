@@ -1,14 +1,43 @@
 from person import Person
 
 def createAccount():
-    input("Enter your username: ")
+    user = input("Enter your username: ")
+    # compare with database
+    pasW = input("Enter your password: ")
+
+    #year, concentration, major
+    name = input("Enter your full name: ")
+    year = int(input("Enter your year at the university: "))
+    major = input("Enter your major at the university: ")
+    conce = input("Enter your concentration in CPSC: ")
+
+    #classes, interests
+    print("Enter the number corresponding to the interest that you identify with\n 
+           0 Sports\n
+           1 Gaming\n
+           2 Reading\n
+           3 Coding\n
+           4 Music\n
+           4 Stocks\n
+           5 Movies\n
+           6 Done Selecting Interests\n")
+    
+    i = int(input())
+    interestsArr = []
+
+    while (i != 6):
+        interestsArr.append(i)
+        i = int(input())
+
+
+    return name, year, major, conce, interestsArr
 
 
 def login():
-    input("Enter your username: ")
-
-
-
+    user = input("Enter your username: ")
+    # compare with database to make sure it exists
+    pasW = input("Enter your password: ")
+    # check if password is valid
 
 
 
