@@ -48,14 +48,10 @@ def main():
         name, userYear, userMajor, userConcen, userInterestArr = createAccount() #after they create account, they will be logged in
     elif userChoice == 2:
         login() #all information is saved 
-    else 
+    else:
         print("Invalid option selected")
+        exit(1)
 
     user = Person()
-
-    user.setName(name)
-    user.setYear(userYear)
-    user.setMajor(userMajor)
-    user.setConcen(userConcen)
 
 
