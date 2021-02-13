@@ -42,3 +42,7 @@ class Person:
     
     def setYear(self,year):
         self.year = year
+
+    def editDescription(self, description):
+        self.description = description
+        
