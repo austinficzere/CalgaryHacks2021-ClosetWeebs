@@ -90,3 +90,4 @@ class Match:
         
         recommended = self.bubbleSort(points, copyPoints, copyPeople, recommended)
 
+        return recommended
