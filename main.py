@@ -51,7 +51,7 @@ def login():
 
 
 def main():
-    userChoice = input("Enter 1 to Create Account or Enter 2 to Login with an existing account: ")
+    userChoice = int(input("Enter 1 to Create Account or Enter 2 to Login with an existing account: "))
 
     if userChoice == 1:
         name, userYear, userMajor, userConcen, userClassArr, userInterestArr = createAccount() #after they create account, they will be logged in
