@@ -77,4 +77,10 @@ def main():
         print("Invalid option selected")
         exit(1)
 
+    for person in server.getPersons():
+        person.toString()
+        print()
+
+    server.closeData()
+
 main()
