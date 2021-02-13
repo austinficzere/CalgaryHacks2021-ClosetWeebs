@@ -38,8 +38,11 @@ def createAccount():
         interestsArr.append(i)
         i = int(input())
 
+    descr = input("Enter the bio you want others to see: ")
 
-    return name, year, major, conce, classArr, interestsArr
+    prior = int(input("Enter the priority by which you want to be matched: 1 -> Year 2 -> Major 3 -> Concentration 4 -> Classes 5 -> Interests"))
+
+    return name, year, major, conce, classArr, interestsArr, descr, prior
 
 
 def login():
@@ -54,13 +57,13 @@ def main():
     userChoice = int(input("Enter 1 to Create Account or Enter 2 to Login with an existing account: "))
 
     if userChoice == 1:
-        name, userYear, userMajor, userConcen, userClassArr, userInterestArr = createAccount() #after they create account, they will be logged in
+        name, userYear, userMajor, userConcen, userClassArr, userInterestArr, userDesc, userPrior = createAccount() #after they create account, they will be logged in
     elif userChoice == 2:
         login() #all information is saved 
     else:
         print("Invalid option selected")
         exit(1)
 
-    user = Person(name, userYear, userMajor, userConcen, userClassArr, userInterestArr)
+    user = Person(name, userYear, userMajor, userConcen, userClassArr, userInterestArr, userDesc, userPrior)
 
 main()
