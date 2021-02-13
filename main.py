@@ -12,7 +12,7 @@ def createAccount():
     conce = input("Enter your concentration in CPSC: ")
 
     #classes, interests
-    print("Enter the number corresponding to the interest that you identify with\n 
+    print("""Enter the number corresponding to the interest that you identify with\n 
            0 Sports\n
            1 Gaming\n
            2 Reading\n
@@ -20,7 +20,7 @@ def createAccount():
            4 Music\n
            4 Stocks\n
            5 Movies\n
-           6 Done Selecting Interests\n")
+           6 Done Selecting Interests\n""")
     
     i = int(input())
     interestsArr = []
@@ -42,6 +42,20 @@ def login():
 
 
 def main():
-    pass
+    userChoice = input("Enter 1 to Create Account or Enter 2 to Login with an existing account: ")
+
+    if userChoice == 1:
+        name, userYear, userMajor, userConcen, userInterestArr = createAccount() #after they create account, they will be logged in
+    elif userChoice == 2:
+        login() #all information is saved 
+    else 
+        print("Invalid option selected")
+
+    user = Person()
+
+    user.setName(name)
+    user.setYear(userYear)
+    user.setMajor(userMajor)
+    user.setConcen(userConcen)
 
 
