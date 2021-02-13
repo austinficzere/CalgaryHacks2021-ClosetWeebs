@@ -1,11 +1,12 @@
 class Person:
-    def __init__(self, name, year, major, concentrations, classes, interests):
+    def __init__(self, name, year, major, concentrations, classes, interests, description):
         self.name = name #String
         self.year = year #Int
         self.major = major # String
         self.concentrations = concentrations # String
         self.classes = classes #[Strings]
         self.interests = interests #[(Int,String)]
+        self.description = description #String
 
     def getYear(self):
         return self.year
