@@ -7,11 +7,20 @@ from os import path
 class Database:
 
     USERS = "users.txt"
+    LOGIN = "login.txt"
     def __init__(self):
         self.readPersons()
+        self.readUsers()
 
     def getPersons(self):
         return self.persons.values()
+
+    def readUsers(self):
+        if (not path.exists(self.LOGIN)):
+            self.users = []
+        else:
+            with open(self.LOGIN, 'rb') as input:
+                self.users = pickle.load(input)
 
     def readPersons(self):
         if (not path.exists(self.USERS)):
@@ -20,16 +29,27 @@ class Database:
             with open(self.USERS, 'rb') as input:
                 self.persons = pickle.load(input)
 
-    def addPerson(self,user, password, person):
-        if((user,password) not in self.persons):
-            self.persons[(user,password)] = person
+    def addUser(self, user, password):
+        if(user not in self.persons):
+            self.users.append((user,password))
+        else:
+            print("Person already exists")
+
+    def addPerson(self,user, person):
+        if(user not in self.persons):
+            self.persons[user] = person
         else:
             print("Person already exists")
 
     def closeData(self):
+        self.writeUsers()
         self.writePersons()
 
     def writePersons(self):
         with open(self.USERS, 'wb') as output:
             pickle.dump(self.persons, output, pickle.HIGHEST_PROTOCOL)
+
+    def writeUsers(self):
+        with open(self.LOGIN, 'wb') as output:
+            pickle.dump(self.users, output, pickle.HIGHEST_PROTOCOL)
          
