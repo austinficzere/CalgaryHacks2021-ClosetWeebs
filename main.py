@@ -1,10 +1,12 @@
 from person import Person
 from database import Database
 
-def createAccount():
+def createAccount(server):
     user = input("Enter your username: ")
     # compare with database
     pasW = input("Enter your password: ")
+
+    server.addUser(user, pasW)
 
     #year, concentration, major
     name = input("Enter your full name: ")
@@ -42,10 +44,10 @@ def createAccount():
 
     prior = int(input("Enter the priority by which you want to be matched: 1 -> Year 2 -> Major 3 -> Concentration 4 -> Classes 5 -> Interests"))
 
-    return name, year, major, conce, classArr, interestsArr, descr, prior
+    return user, name, year, major, conce, classArr, interestsArr, descr, prior
 
 
-def login():
+def login(server):
     user = input("Enter your username: ")
     # compare with database to make sure it exists
     pasW = input("Enter your password: ")
@@ -54,16 +56,19 @@ def login():
 
 
 def main():
+    server = Database()
     userChoice = int(input("Enter 1 to Create Account or Enter 2 to Login with an existing account: "))
 
     if userChoice == 1:
-        name, userYear, userMajor, userConcen, userClassArr, userInterestArr, userDesc, userPrior = createAccount() #after they create account, they will be logged in
+        username, name, userYear, userMajor, userConcen, userClassArr, userInterestArr, userDesc, userPrior = createAccount(server) #after they create account, they will be logged in
+
+        user = Person(name, userYear, userMajor, userConcen, userClassArr, userInterestArr, userDesc, userPrior)
+        server.addPerson(username, user)
+
     elif userChoice == 2:
-        login() #all information is saved 
+        login(server) #all information is saved 
     else:
         print("Invalid option selected")
         exit(1)
-
-    user = Person(name, userYear, userMajor, userConcen, userClassArr, userInterestArr, userDesc, userPrior)
 
 main()
