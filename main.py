@@ -1,4 +1,5 @@
 from person import Person
+from database import Database
 
 def createAccount():
     user = input("Enter your username: ")
