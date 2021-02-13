@@ -1,12 +1,13 @@
 class Person:
-    def __init__(self, name, year, major, concentrations, classes, interests):
+    def __init__(self, name, year, major, concentrations, classes, interests, description, priority):
         self.name = name #String
         self.year = year #Int
         self.major = major # String
         self.concentrations = concentrations # String
         self.classes = classes #[String]
         self.interests = interests #[String]
-        
+        self.description = description #String
+        self.priority = priority #int
 
     def getYear(self):
         return self.year
@@ -23,9 +24,15 @@ class Person:
     def getClasses(self):
         return self.classes
     
-    def getInterets(self):
+    def getInterests(self):
         return self.interests
-    
+
+    def getDescription(self):
+        return self.description
+
+    def getPriority(self):
+        return self.priority
+
     def setInterests(self,inter):
         self.interests = inter
 
@@ -46,4 +53,7 @@ class Person:
 
     def editDescription(self, description):
         self.description = description
+
+    def setPriority(self, pri):
+        self.priority = pri
         
