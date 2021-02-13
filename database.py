@@ -18,6 +18,9 @@ class Database:
             ret.append(user)
         return ret
 
+    def isUserPassValid(self, username,password):
+        return (username,password) in self.users
+
     def getPersons(self):
         return self.persons.values()
 
