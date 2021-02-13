@@ -49,9 +49,15 @@ def createAccount(server):
 
 def login(server):
     user = input("Enter your username: ")
-    # compare with database to make sure it exists
     pasW = input("Enter your password: ")
-    # check if password is valid
+
+    test = False
+    while (server.isUserPassValid(user, pasW) == test):
+        print("Invalid Username or Password\n")
+        user = input("Enter your username or enter nothing exit: ")
+        if (user == ""):
+            break
+        pasW = input("Enter your password: ")
 
 
 
