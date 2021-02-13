@@ -62,4 +62,4 @@ def main():
 
     user = Person(name, userYear, userMajor, userConcen, userClassArr, userInterestArr)
 
-
+main()
