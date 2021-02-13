@@ -58,12 +58,12 @@ class Person:
         self.priority = pri
         
     def toString(self):
-        print("Name: ", getName())
-        print("Year of Study: ", getYear())
-        print("Major: ", getMajor())
-        print("Concentration: ", getConcen())
-        print("Classes: ", getClasses())
-        print("Interests: ", getInterests())
-        print("Priority: ", getPriority())
-        print("Description: ", getDescription())
+        print("Name: ", self.getName())
+        print("Year of Study: ", self.getYear())
+        print("Major: ", self.getMajor())
+        print("Concentration: ", self.getConcen())
+        print("Classes: ", self.getClasses())
+        print("Interests: ", self.getInterests())
+        print("Priority: ", self.getPriority())
+        print("Description: ", self.getDescription())
 
