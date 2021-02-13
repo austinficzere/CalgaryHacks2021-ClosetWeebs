@@ -12,6 +12,12 @@ class Database:
         self.readPersons()
         self.readUsers()
 
+    def userNames(self):
+        ret = []
+        for (user, p) in self.users:
+            ret.append(user)
+        return ret
+
     def getPersons(self):
         return self.persons.values()
 
@@ -35,7 +41,7 @@ class Database:
         else:
             print("Person already exists")
 
-    def addPerson(self,user, person):
+    def addPerson(self, user, person):
         if(user not in self.persons):
             self.persons[user] = person
         else:
