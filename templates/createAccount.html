@@ -5,28 +5,11 @@
 	<link href = "web.css" rel = "stylesheet">
 </head>
 
+<h2>Tell Us About Yourself</h2>
 <body>
 	<h2>Create Your Account</h2>
 
 	<form method = "POST"> 
-		<div class="container">
-			  <label for="username">Username</label>
-		<br>
-			  <input type="text" placeholder="Enter Username" name="username" required>
-		<br>
-		<br>
-			  <label for="pswd">Password</label>
-		<br>
-			  <input type="password" placeholder="Enter Password" name="pswd" required>
-			<br>
-		<br>
-			  <button type="submit">Sign Up</button>
-
-		</div>
-	</form> 
-
-	<h2>Tell Us About Yourself</h2>
-	<form method="POST"> 
 		<div class="container">
 			  <label for="username">Username</label>
 		<br>
@@ -48,7 +31,7 @@
 			<br>
       			<label for="year">Year of Study</label>
 				  <br>
-				  <select name="concen" id="concen">
+				  <select name="year+" id="year+">
     				<option value="1">1st Year</option>
     				<option value="2">2nd Year</option>
     				<option value="3">3rd Year</option>
@@ -122,10 +105,10 @@
 			<label for="interests">Select the topic you want to get matched by</label>
 			<br>
 			<select name="priority" id="priority">
-				<option value="year">Year</option>
-				<option value="major">Major</option>
-				<option value="concen">Concentration</option>
-				<option value="interests">Interests</option>
+				<option value="1">Year</option>
+				<option value="2">Major</option>
+				<option value="3">Concentration</option>
+				<option value="5">Interests</option>
 		  	</select>
 
 			<br>
@@ -133,11 +116,7 @@
 
 
 			<label for="desc">Enter a description about yorself</label>
-			<br>
-    			<textarea rows = "4" cols = "18"> 
-    			</textarea>
-
-   			<br>
+			<input type="text" id="descrip" name="descrip"><br><br>
 			
 			<br>
       			<button type="submit">Save and Submit</button>
