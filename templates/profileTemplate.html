@@ -2,14 +2,13 @@
 <html>
 <head>
     	<title>Profile</title>
-	<link href = "{{ url_for('static', filename='profileTemplate.css') }}" rel = "stylesheet">
+		<link rel="stylesheet" href="{{ url_for('static', filename='pTemplate.css') }}">
 </head>
 
 
-
+<body>
 	<!-- <h2>Your Profile</h2> -->
-	<form method="POST"> 
-		<div class="container">
+		<div class="panel">
 			<div>
 				Name: {{  user.getName() }}
 			</div>
@@ -73,18 +72,25 @@
 				{% endif %}
 			</div>
 			<br>
-<<<<<<< HEAD
 			<div>
 				Description: {{  user.getDescription() }}
 			</div>
+			<br>
+			<br>
+			<button class="button">
+				<a href = "/MainPage"> 
+					Home
+				</a>
+				</button>
+			
+			<br>
+			<button class="button">
+				<a href = "/MatchPage"> 
+					Go Back to Matches
+				</a>
+			</button>
 		</div>
 
-			
-=======
-			Description: {{  user.getDescription() }}
-      		
->>>>>>> b47b444366cdc777d5b3cd6eda5e1c29c9288126
-	</form> 
 
 </body>
 </html>
