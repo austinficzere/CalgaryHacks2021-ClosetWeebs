@@ -70,6 +70,13 @@ def editProfile():
         changePerson(request.form,createPerson(request.form),user)
     return render_template("editProfile.html", user = data.readUser(user))
 
+@app.route("/chat/<other>", methods = ['POST','GET'])
+def createChat(other = None):
+    user = request.cookies.get('username')
+    currentChat = data.getChat(user,other)
+    return render_template("chat.html", chat = currentChat)
+
+
 def addPerson(form,person):
     user = request.form['username']
     passw = request.form['pswd']
