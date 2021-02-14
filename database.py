@@ -27,6 +27,9 @@ class Database:
     def readUser(self,username):
         return self.persons[username]
 
+    def removeUser(self,username):
+        self.persons.pop(username, None)
+
     def readUsers(self):
         if (not path.exists(self.LOGIN)):
             self.users = []

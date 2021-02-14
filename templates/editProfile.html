@@ -20,8 +20,8 @@
       			<label for="year">Year of Study</label>
 				  <br>
 				  <select name="year+" class = "dropDown" id="year+">
-    				<option value="userYear">{{  user.getYear() }}</option>
-                    <option value="2">1st Year</option>
+    				<option value= {{user.getYear()}} >{{  user.getYear() }}</option>
+                    <option value="1">1st Year</option>
     				<option value="2">2nd Year</option>
     				<option value="3">3rd Year</option>
     				<option value="4">4th Year</option>
@@ -110,11 +110,7 @@
 
 
             <br>
-      		<button type="submit" class="button">
-                <a href = "editProfile"> 
-                    Save and Submit
-                </a></button>
-
+			<button type="submit" class="button">Save and Submit</button>
 			
 	</form> 
     </div>

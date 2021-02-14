@@ -23,7 +23,6 @@ def login():
 @app.route("/MainPage")
 def mainPage():
     user = request.cookies.get('username')
-    print(data.readUser(user).toString())
     return render_template("MatchPage.html")
 
 def loginValidate(form):
@@ -52,12 +51,13 @@ def createAccount():
 
 @app.route("/users/<user>")
 def createProfile(user = None):
-    print(user)
-    print(data.readUser(user))
     return render_template("profileTemplate.html",user = data.readUser(user))
 
-@app.route("/editProfile")
+@app.route("/editProfile", methods = ['POST','GET'])
 def editProfile():
+    if request.method == 'POST':
+        print("HELLO")
+        changePerson(request.form,createPerson(request.form))
     user = request.cookies.get('username')
     return render_template("editProfile.html", user = data.readUser(user))
 
@@ -65,6 +65,13 @@ def addPerson(form,person):
     user = request.form['username']
     passw = request.form['pswd']
     data.addUser(user,passw)
+    data.addPerson(user,person)
+    data.closeData()
+
+def changePerson(form,person):
+    user = request.form['username']
+    passw = request.form['pswd']
+    data.removeUser(user)
     data.addPerson(user,person)
     data.closeData()
 
