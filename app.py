@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for,make_response
 from person import Person
 from database import Database
 
@@ -13,14 +13,17 @@ def index():
 @app.route("/login", methods = ['POST','GET'])
 def login():
     if request.method == 'POST':
-        loginValidate(request.form)
+        if loginValidate(request.form):
+             resp = make_response(render_template('./MatchPage.html'))
+             resp.set_cookie('username', request.form['username'])
+             return resp
     return render_template('login.html')
 
 def loginValidate(form):
     if data.isUserPassValid(request.form['username'],request.form['pswd']):
-        print("LOGINED")
+        return True
     else:
-        print("no")
+        return False
 
 
 @app.route("/createAccount", methods = ['POST','GET'])
@@ -31,8 +34,8 @@ def createAccount():
     return render_template('createAccount.html')
 
 @app.route("/users/<name>")
-def createProfile():
-    render_template("profileTemplate.html",data.getPersons)
+def createProfile(name = None):
+    render_template("profileTemplate.html",user = data.getUser(name))
 
 
 def addPerson(form,person):
