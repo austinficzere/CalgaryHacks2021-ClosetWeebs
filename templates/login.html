@@ -2,34 +2,41 @@
 <html>
 <head>
     	<title> Login Page </title>
-	    <link href = "web.css" rel = "stylesheet">
+	    <link href = "login.css" rel = "stylesheet">
 </head>
 
 <body>
-	<h2>Welcome, Please Login</h2>
-    	<form method = "POST"> 
-    		<div class="container">
-      			<label for="username">Username</label>
-			<br>
-      			<input type="text" placeholder="Enter Username" name="username" required>
-			<br>
-			<br>
-      			<label for="pswd">Password</label>
-			<br>
-      			<input type="password" placeholder="Enter Password" name="pswd" required>
-        		<br>
-			<br>
-      			<button type="submit">Login</button>
+	<div class="panel">
+		<h1 class = "label">Welcome, Please Login</h1>
+	
+		<br>
+		<br>
+			<form method = "POST"> 
+				<div class="container">
+					<label for="username">Username</label>
+				<br>
+					<input type="text" placeholder="Enter Username" name="username" required>
+				<br>
+				<br>
+					<label for="pswd">Password</label>
+				<br>
+					<input type="password"  class = "psd" placeholder="Enter Password" name="pswd" required>
+					<br>
+				<br>
+					<button type="submit" class="button">Login</button>
 
-    		</div>
-	</form> 
-	<br>
-	<div class="container">
-		<button>
-		<a href = "createAccount"> 
-			Create an Account
-		</a>
-		</button>
-    	</div>
+				</div>
+			</form> 
+		<br>
+		<div class="container">
+			<h3 class = "label"> Or,</h3>
+			<button class="button">
+			<a href = "createAccount.html"> 
+				Create an Account
+			</a>
+			</button>
+		</div>
+	</div>
+	
 </body>
 </html>
