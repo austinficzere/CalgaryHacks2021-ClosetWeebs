@@ -5,10 +5,12 @@
 	<link href = "web.css" rel = "stylesheet">
 </head>
 
-<h2>Tell Us About Yourself</h2>
 <body>
-	<h2>Create Your Account</h2>
+	<div class="panel">
 
+	<h1 class = "label">Create Your Account</h1>
+	<br>
+	<h1 class = "label">Tell Us About Yourself</h1>
 	<form method = "POST"> 
 		<div class="container">
 			  <label for="username">Username</label>
@@ -16,9 +18,9 @@
 			  <input type="text" placeholder="Enter Username" name="username" required>
 		<br>
 		<br>
-			  <label for="pswd">Password</label>
+			  <label for="pswd" >Password</label>
 		<br>
-			  <input type="password" placeholder="Enter Password" name="pswd" required>
+			  <input type="password" class = "psd" placeholder="Enter Password" name="pswd" required>
 			<br>
 		<br>
 		</div>
@@ -31,7 +33,7 @@
 			<br>
       			<label for="year">Year of Study</label>
 				  <br>
-				  <select name="year+" id="year+">
+				  <select name="year+" class = "dropDown" id="year+">
     				<option value="1">1st Year</option>
     				<option value="2">2nd Year</option>
     				<option value="3">3rd Year</option>
@@ -119,10 +121,11 @@
 			<input type="text" id="descrip" name="descrip"><br><br>
 			
 			<br>
-      			<button type="submit">Save and Submit</button>
+      			<button type="submit" class="button">Save and Submit</button>
 
     		</div>
 	</form> 
+	</div>
 
 </body>
 </html>
