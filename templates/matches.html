@@ -11,9 +11,10 @@
     <div class = "panel">
     <center>
     <h1 class = "label">You have matched with the following people!</h1>
-    {% for n in matches %}
-        <li> {{n.getName()}} <button>
-            <a href = "/MainPage"> View Profile
+    {% for i in iterator %}
+        
+        <li> {{matches[i].getName()}} <button>
+            <a href = {{ "/users/" + users[i] }}> View Profile
                             </a>
                              </button></li>
     {% endfor %}

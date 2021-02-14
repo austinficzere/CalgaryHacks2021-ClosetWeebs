@@ -39,14 +39,14 @@ def matches():
 
     keys = data.getUsers()
 
-    inputArr = []
+    userNames = []
 
     for person in topMatches:
         for key in keys:
             if (data.readUser(key).isEqual(person)):
-                inputArr.append(key,person)
+                userNames.append(key)
 
-    return render_template("matches.html", matches = inputArr)
+    return render_template("matches.html", iterator = range(0,len(topMatches)),matches = topMatches, users = userNames)
 
 
 @app.route("/createAccount", methods = ['POST','GET'])
