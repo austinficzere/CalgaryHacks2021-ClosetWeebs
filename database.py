@@ -22,7 +22,10 @@ class Database:
         return (username,password) in self.users
 
     def getPersons(self):
-        return self.persons.values()
+        return list(self.persons.values())
+
+    def readUser(self,username):
+        self.persons[username]
 
     def readUsers(self):
         if (not path.exists(self.LOGIN)):
@@ -61,4 +64,5 @@ class Database:
     def writeUsers(self):
         with open(self.LOGIN, 'wb') as output:
             pickle.dump(self.users, output, pickle.HIGHEST_PROTOCOL)
-         
+
+    
