@@ -14,10 +14,15 @@ def index():
 def login():
     if request.method == 'POST':
         if loginValidate(request.form):
-             resp = make_response(render_template('./MatchPage.html'))
+             resp = make_response(redirect('/MatchPage.html'))
              resp.set_cookie('username', request.form['username'])
              return resp
     return render_template('login.html')
+
+@app.route("/MatchPage.html")
+def match():
+    user = request.cookies.get('username')
+    return render_template("MatchPage.html")
 
 def loginValidate(form):
     if data.isUserPassValid(request.form['username'],request.form['pswd']):
@@ -31,11 +36,15 @@ def createAccount():
     if request.method == 'POST':
         newPerson = createPerson(request.form)
         addPerson(request.form,newPerson)
+        resp = make_response(redirect('/MatchPage.html'))
+        resp.set_cookie('username', request.form['username'])
+        return resp
     return render_template('createAccount.html')
 
-@app.route("/users/<name>")
+@app.route("/users/<user>")
 def createProfile(user = None):
-    render_template("profileTemplate.html",user = data.readUser(name))
+    print(user)
+    render_template("profileTemplate.html",user = data.readUser(user))
 
 
 def addPerson(form,person):
