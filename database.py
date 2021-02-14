@@ -13,6 +13,7 @@ class Database:
     def __init__(self):
         self.readPersons()
         self.readUsers()
+        self.readChat()
 
     def userNames(self):
         ret = []

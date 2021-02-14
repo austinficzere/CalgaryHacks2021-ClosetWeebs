@@ -24,6 +24,33 @@ body {
 	color: #016ff9;
 }
 
+input[type=text]{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+     border-radius: 10px;
+     border: 1px solid #888;
+     color: #60a9ff;
+     width: 250px;
+     height: 30px;
+     padding-left: 10px;
+    }
+    
+input[type=text]:focus {
+     outline: none;
+     border: 1px solid #e1f1ff;
+     color: #888;
+}
+
+select {
+    border:1px solid #888;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+     border-radius: 10px;
+	height: 30px;
+    padding:2px;
+	color: #888;
+}
+
 .button{
     border: 1px solid #888;
     border-radius: 10px;
