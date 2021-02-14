@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href = "{{ url_for('static', filename='chatty.css') }}" rel = "stylesheet">
+</head>
+
+<body>
+    <form method="POST">
+    <div class = "panel">
+        <h1>Chat</h1>
+
+        
+        <div>   
+            <label for="msg"> Send a message </label> 
+            <input type="text" name = "msg" id = "msg">
+        </div>
+
+        <div>
+            {%for item in chat%}
+                {{item}}
+            {%endfor%}
+
+        </div>
+
+        <div>   
+            <button class="button">Submit</button>
+        </div>
+    
+
+    
+    </div>
+    </form>
+    
+
+</body>
+</html>
