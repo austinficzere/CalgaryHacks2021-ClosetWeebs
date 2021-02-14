@@ -1,14 +1,18 @@
-from flask import Flask, render_template, requests
+from flask import Flask, render_template, request
 
-app = Flask(__name__, template_folder='template')
+app = Flask(__name__)
 
-@app.route("/", methods = ['POST','GET'])
-
+@app.route('/')
 def index():
-    if requests.method == 'POST':
-        pass
-    else:   
-        return render_template('')
+    pass
+
+@app.route("/login", methods = ['POST','GET'])
+def login():
+    return render_template('login.html')
+
+@app.route("/createAccount", methods = ['POST','GET'])
+def createAccount():
+    return render_template('createAccount.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
