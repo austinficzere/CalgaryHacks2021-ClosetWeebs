@@ -1,3 +1,5 @@
+import copy
+
 class Match:
 
     def __init__(self, person, listOfAllPeople):
@@ -13,7 +15,7 @@ class Match:
     def bubbleSort(self, points, copyPoints, copyPeople, recommended):
         for passnum in range(len(points)-1,0,-1):
             for i in range(passnum):
-                if points[i]>points[i+1]:
+                if points[i]<points[i+1]:
                     temp = points[i]
                     points[i] = points[i+1]
                     points[i+1] = temp
@@ -21,25 +23,25 @@ class Match:
         for i in range(0, len(points) - 1):
             for j in range(0, len(copyPoints) - 1):
                 if points[i] == copyPoints[j]:
-                    recommended[i] = copyPeople[j]
+                    recommended.append(copyPeople[j])
                     copyPoints[j] = -1
-                    break
         
         return recommended
 
     def match(self):
         copyPeople = []
         counter = 0
-        points = []
-        copyPoints = []
         recommended = []
         pri = self.person.getPriority()
-        for indiv in self.people:
-            copyPeople.append(indiv)
 
-        for indiv in copyPeople:
-            if self.person == indiv:
-                copyPeople.remove(indiv)
+        for person in self.people:
+            if person != self.person:
+                copyPeople.append(person)
+    
+        copyPeople = copy.deepcopy(copyPeople)
+
+        points = [0]*len(copyPeople)
+        copyPoints = [0]*len(copyPeople)
 
         for indiv in copyPeople:
             if self.person.getYear() == indiv.getYear():
@@ -88,6 +90,6 @@ class Match:
 
             counter += 1
         
-        recommended = self.bubbleSort(points, copyPoints, copyPeople, recommended)
-
-        return recommended
+        print(points)
+        print(copyPoints)
+        return self.bubbleSort(points, copyPoints, copyPeople, recommended)

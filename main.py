@@ -1,5 +1,6 @@
 from person import Person
 from database import Database
+from match import Match
 
 def createAccount(server):
     user = input("Enter your username: ")
@@ -29,14 +30,14 @@ def createAccount(server):
            2 Reading\n
            3 Coding\n
            4 Music\n
-           4 Stocks\n
-           5 Movies\n
-           6 Done Selecting Interests\n""")
+           5 Stocks\n
+           6 Movies\n
+           7 Done Selecting Interests\n""")
     
     i = int(input())
     interestsArr = []
 
-    while (i != 6):
+    while (i != 7):
         interestsArr.append(i)
         i = int(input())
 
@@ -58,6 +59,7 @@ def login(server):
         if (user == ""):
             break
         pasW = input("Enter your password: ")
+    
 
 
 
@@ -76,10 +78,19 @@ def main():
     else:
         print("Invalid option selected")
         exit(1)
-
+    
     for person in server.getPersons():
         person.toString()
         print()
+
+
+    print()
+    print("TESTING")
+    newM = Match(user,server.getPersons())
+    matching = newM.match()
+    for person in matching:
+        person.toString()
+    
 
     server.closeData()
 
