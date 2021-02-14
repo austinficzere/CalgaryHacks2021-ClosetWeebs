@@ -61,7 +61,7 @@ def createAccount():
 
 @app.route("/users/<user>")
 def createProfile(user = None):
-    return render_template("profileTemplate.html",user = data.readUser(user))
+    return render_template("profileTemplate.html",username = user, user = data.readUser(user))
 
 @app.route("/editProfile", methods = ['POST','GET'])
 def editProfile():
@@ -73,6 +73,9 @@ def editProfile():
 @app.route("/chat/<other>", methods = ['POST','GET'])
 def createChat(other = None):
     user = request.cookies.get('username')
+    if request.method == 'POST':
+        print(request.form)
+        data.addChat(user,other,user+":"+request.form['msg'])
     currentChat = data.getChat(user,other)
     return render_template("chat.html", chat = currentChat)
 

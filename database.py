@@ -25,6 +25,9 @@ class Database:
         return (username,password) in self.users
 
     def getChat(self,user,other):
+        if (user,other) not in self.chat:
+            self.chat[(user,other)] = []
+            self.chat[(other,user)] = []
         return self.chat[(user,other)]
 
     def getUsers(self):
