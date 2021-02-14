@@ -6,9 +6,22 @@
 </head>
 
 <body>
-	<h2>Tell Us About Yourself</h2>
 
-	<form> 
+
+	<h2>Tell Us About Yourself</h2>
+	<form method="POST"> 
+		<div class="container">
+			  <label for="username">Username</label>
+		<br>
+			  <input type="text" placeholder="Enter Username" name="username" required>
+		<br>
+		<br>
+			  <label for="pswd">Password</label>
+		<br>
+			  <input type="password" placeholder="Enter Password" name="pswd" required>
+			<br>
+		<br>
+		</div>
     		<div class="container">
       			<label for="name">Name</label>
 			<br>
@@ -17,9 +30,15 @@
 
 			<br>
       			<label for="year">Year of Study</label>
+				  <br>
+				  <select name="concen" id="concen">
+    				<option value="1">1st Year</option>
+    				<option value="2">2nd Year</option>
+    				<option value="3">3rd Year</option>
+    				<option value="4">4th Year</option>
+					<option value="5">5+ Year</option>
+  				</select>
 			<br>
-      			<input type="text" placeholder="Enter Year" name="year" required>
-        		<br>
 
 			<br>
 			<label for="major">Major</label>
