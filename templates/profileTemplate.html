@@ -2,28 +2,81 @@
 <html>
 <head>
     	<title>Profile</title>
-	<link href = "web.css" rel = "stylesheet">
+	<link href = "{{ url_for('static', filename='profileTemplate.css') }}" rel = "stylesheet">
 </head>
 
 
 
-	<h2>Your Profile</h2>
+	<!-- <h2>Your Profile</h2> -->
 	<form method="POST"> 
 		<div class="container">
-			Name: {{  user.getName() }}
+			<div>
+				Name: {{  user.getName() }}
+			</div>
 			<br>
-			Year of Study: {{  user.getYear() }}
+			<div>
+				Year of Study: {{  user.getYear() }}
+			</div>
 			<br>
-			Major:{{  user.getMajor() }}
+			<div>
+				Major: {{  user.getMajor() }}
+			</div>
 			<br>
-			Concentration: {{  user.getConcen() }}
+			<div>
+				Concentration: {{  user.getConcen() }}
+			</div>
 			<br>
-			Interests: {{  user.getInterests }}
+			<div>
+				Interests:
+				{%for item in user.getInterests()%}
+				<li>
+					{% if item == 0 %}
+						Sports
+					{% endif %}
+					{% if item == 1 %}
+						Gaming
+					{% endif %}
+					{% if item == 2 %}
+						Reading
+					{% endif %}
+					{% if item == 3 %}
+						Coding 
+					{% endif %}
+					{% if item == 4 %}
+						Music 
+					{% endif %}
+					{% if item == 5 %}
+						Stocks 
+					{% endif %}
+					{% if item == 6 %}
+						Movies 
+					{% endif %}
+				</li>
+				{% endfor %}
+			</div>
 			<br>
-			Matching Criteria: {{  user.Priority }}
+			<div>
+				{% if user.getPriority() == 1 %}
+					Matching Criteria: Year
+				{% endif %}
+				{% if user.getPriority() == 2 %}
+					Matching Criteria: Major
+				{% endif %}
+				{% if user.getPriority() == 3 %}
+					Matching Criteria: Concentration
+				{% endif %}
+				{% if user.getPriority() == 4 %}
+					Matching Criteria: Classes
+				{% endif %}
+				{% if user.getPriority() == 5 %}
+					Matching Criteria: Interests
+				{% endif %}
+			</div>
 			<br>
-			Description: {{  user.getDescription }}
-      		
+			<div>
+				Description: {{  user.getDescription() }}
+			</div>
+		</div>
 
 			
 	</form> 
