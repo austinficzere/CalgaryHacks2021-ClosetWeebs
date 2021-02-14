@@ -102,7 +102,13 @@
 
             <br>
             <label for="desc">Priority</label>
-			<input type="text" id="priority" name="priority" placeholder={{  user.getPriority() }}><br><br>
+            <select name="priority" id="priority">
+                <option value="userP">{{user.getPriority()}}</option>
+				<option value="1">Year</option>
+				<option value="2">Major</option>
+				<option value="3">Concentration</option>
+				<option value="5">Interests</option>
+		  	</select>
 			<br>
 
             <label for="desc">Description</label>
