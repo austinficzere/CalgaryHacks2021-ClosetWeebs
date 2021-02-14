@@ -2,14 +2,13 @@
 <html>
 <head>
     	<title>Profile</title>
-	<link href = "{{ url_for('static', filename='profileTemplate.css') }}" rel = "stylesheet">
+		<link rel="stylesheet" href="{{ url_for('static', filename='pTemplate.css') }}">
 </head>
 
 
-
+<body>
 	<!-- <h2>Your Profile</h2> -->
-	<form method="POST"> 
-		<div class="container">
+		<div class="panel">
 			<div>
 				Name: {{  user.getName() }}
 			</div>
@@ -77,9 +76,6 @@
 				Description: {{  user.getDescription() }}
 			</div>
 		</div>
-
-			
-	</form> 
 
 </body>
 </html>
