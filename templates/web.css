@@ -19,7 +19,7 @@ body {
     max-height: 75%; 
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
     text-transform: uppercase;
 	color: #016ff9;
 }
