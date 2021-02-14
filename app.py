@@ -56,8 +56,9 @@ def createProfile(user = None):
     print(data.readUser(user))
     return render_template("profileTemplate.html",user = data.readUser(user))
 
-@app.route("/editProfile.html")
-def editProfile(user = None):
+@app.route("/editProfile")
+def editProfile():
+    user = request.cookies.get('username')
     return render_template("editProfile.html", user = data.readUser(user))
 
 def addPerson(form,person):

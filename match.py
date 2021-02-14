@@ -11,17 +11,18 @@ class Match:
     #         return NotImplemented
 
     #     return self.
+    # 0<=i<len(points)
 
     def bubbleSort(self, points, copyPoints, copyPeople, recommended):
-        for passnum in range(len(points)-1,0,-1):
+        for passnum in range(len(points)-1,-1,-1):
             for i in range(passnum):
                 if points[i]<points[i+1]:
                     temp = points[i]
                     points[i] = points[i+1]
                     points[i+1] = temp
 
-        for i in range(0, len(points) - 1):
-            for j in range(0, len(copyPoints) - 1):
+        for i in range(0, len(points)):
+            for j in range(0, len(copyPoints)):
                 if points[i] == copyPoints[j]:
                     recommended.append(copyPeople[j])
                     copyPoints[j] = -1
@@ -37,6 +38,9 @@ class Match:
         for person in self.people:
             if person != self.person:
                 copyPeople.append(person)
+
+        print(len(self.people))
+        print(len(copyPeople))
     
         copyPeople = copy.deepcopy(copyPeople)
 
