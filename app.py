@@ -55,10 +55,10 @@ def createProfile(user = None):
 
 @app.route("/editProfile", methods = ['POST','GET'])
 def editProfile():
+    user = request.cookies.get('username')
     if request.method == 'POST':
         print("HELLO")
-        changePerson(request.form,createPerson(request.form))
-    user = request.cookies.get('username')
+        changePerson(request.form,createPerson(request.form),user)
     return render_template("editProfile.html", user = data.readUser(user))
 
 def addPerson(form,person):
@@ -68,9 +68,7 @@ def addPerson(form,person):
     data.addPerson(user,person)
     data.closeData()
 
-def changePerson(form,person):
-    user = request.form['username']
-    passw = request.form['pswd']
+def changePerson(form,person,user):
     data.removeUser(user)
     data.addPerson(user,person)
     data.closeData()
