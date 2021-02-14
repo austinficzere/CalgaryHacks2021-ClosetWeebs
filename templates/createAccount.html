@@ -6,7 +6,24 @@
 </head>
 
 <body>
+	<h2>Create Your Account</h2>
 
+	<form method = "POST"> 
+		<div class="container">
+			  <label for="username">Username</label>
+		<br>
+			  <input type="text" placeholder="Enter Username" name="username" required>
+		<br>
+		<br>
+			  <label for="pswd">Password</label>
+		<br>
+			  <input type="password" placeholder="Enter Password" name="pswd" required>
+			<br>
+		<br>
+			  <button type="submit">Sign Up</button>
+
+		</div>
+	</form> 
 
 	<h2>Tell Us About Yourself</h2>
 	<form method="POST"> 
@@ -101,6 +118,20 @@
   				<label for="movies">Movies</label>
 			</div>
 			<br>
+
+			<label for="interests">Select the topic you want to get matched by</label>
+			<br>
+			<select name="priority" id="priority">
+				<option value="year">Year</option>
+				<option value="major">Major</option>
+				<option value="concen">Concentration</option>
+				<option value="interests">Interests</option>
+		  	</select>
+
+			<br>
+			<br>
+
+
 			<label for="desc">Enter a description about yorself</label>
 			<br>
     			<textarea rows = "4" cols = "18"> 
