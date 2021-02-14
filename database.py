@@ -25,7 +25,7 @@ class Database:
         return list(self.persons.values())
 
     def readUser(self,username):
-        self.persons[username]
+        return self.persons[username]
 
     def readUsers(self):
         if (not path.exists(self.LOGIN)):

@@ -66,4 +66,3 @@ class Person:
         print("Interests: ", self.getInterests())
         print("Priority: ", self.getPriority())
         print("Description: ", self.getDescription())
-

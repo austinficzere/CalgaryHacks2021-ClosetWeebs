@@ -91,6 +91,4 @@ class Match:
             counter += 1
         
         copyPoints = copy.deepcopy(points)
-        print(points)
-        print(copyPoints)
         return self.bubbleSort(points, copyPoints, copyPeople, recommended)

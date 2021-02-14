@@ -2,7 +2,7 @@
 <html>
 <head>
     	<title> Login Page </title>
-	    <link href = "login.css" rel = "stylesheet">
+	    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 </head>
 
 <body>
@@ -31,7 +31,7 @@
 		<div class="container">
 			<h3 class = "label"> Or,</h3>
 			<button class="button">
-			<a href = "createAccount.html"> 
+			<a href = "createAccount"> 
 				Create an Account
 			</a>
 			</button>
