@@ -8,6 +8,8 @@ class Database:
 
     USERS = "users.txt"
     LOGIN = "login.txt"
+    CHAT = "chat.txt"
+
     def __init__(self):
         self.readPersons()
         self.readUsers()
@@ -20,6 +22,12 @@ class Database:
 
     def isUserPassValid(self, username,password):
         return (username,password) in self.users
+
+    def getChat(self,user,other):
+        return self.chat[(user,other)]
+
+    def getUsers(self):
+        return self.persons.keys()
 
     def getPersons(self):
         return list(self.persons.values())
@@ -37,6 +45,13 @@ class Database:
             with open(self.LOGIN, 'rb') as input:
                 self.users = pickle.load(input)
 
+    def readChat(self):
+        if (not path.exists(self.CHAT)):
+            self.chat = {}
+        else:
+            with open(self.CHAT, 'rb') as input:
+                self.chat = pickle.load(input)
+
     def readPersons(self):
         if (not path.exists(self.USERS)):
             self.persons = {}
@@ -50,6 +65,10 @@ class Database:
         else:
             print("Person already exists")
 
+    def addChat(self, user, other, exchange):
+        self.chat[(user,other)].append(exchange)
+        self.chat[(other,user)].append(exchange)
+
     def addPerson(self, user, person):
         if(user not in self.persons):
             self.persons[user] = person
@@ -59,6 +78,7 @@ class Database:
     def closeData(self):
         self.writeUsers()
         self.writePersons()
+        self.writeChat()
 
     def writePersons(self):
         with open(self.USERS, 'wb') as output:
@@ -68,4 +88,7 @@ class Database:
         with open(self.LOGIN, 'wb') as output:
             pickle.dump(self.users, output, pickle.HIGHEST_PROTOCOL)
 
+    def writeChat(self):
+        with open(self.CHAT, 'wb') as output:
+            pickle.dump(self.chat, output, pickle.HIGHEST_PROTOCOL)
     

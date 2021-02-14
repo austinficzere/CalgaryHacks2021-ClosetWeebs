@@ -38,9 +38,6 @@ class Match:
         for person in self.people:
             if person != self.person:
                 copyPeople.append(person)
-
-        print(len(self.people))
-        print(len(copyPeople))
     
         copyPeople = copy.deepcopy(copyPeople)
 

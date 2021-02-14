@@ -56,6 +56,9 @@ class Person:
 
     def setPriority(self, pri):
         self.priority = pri
+
+    def isEqual(self,other):
+        return (self.name == other.name) and (self.year == other.year) and (self.major == other.major) and (self.concentrations == other.concentrations) and (self.description == other.description)
         
     def toString(self):
         print("Name: ", self.getName())

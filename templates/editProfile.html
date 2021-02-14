@@ -2,7 +2,7 @@
 <html>
 <head>
     	<title>Profile</title>
-	<link href = "{{ url_for('static', filename='edit.css') }}" rel = "stylesheet">
+	<link href = "{{ url_for('static', filename='editProfile.css') }}" rel = "stylesheet">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
             <label for="name">Name</label>
 			<br>
-      			<input type="text"  name="name" placeholder= "{{  user.getName() }}">
+      			<input type="text"  name="name" value= "{{  user.getName() }}">
 			<br>
             
             <br>
@@ -32,24 +32,24 @@
 			<br>
 			<label for="major">Major</label>
 			<br>
-      			<input type="text" placeholder="{{ user.getMajor() }}" name="major" required>
+      			<input type="text" value="{{ user.getMajor() }}" name="major" required>
         		<br>
                 <br>
             
             <label for="concen">Concentration</label>
             <br>
                 <select name="concen" id="concen">
-                    <option value="userCon">{{  user.getConcen() }}</option>
-                    <option value="cgd">Computer Game Development</option>
-                    <option value="seng">Software Engineering</option>
-                    <option value="tcs">Theoretical Computer Science</option>
-                    <option value="scomp">Scientific Computation</option>
-                    <option value="hcint">Human-Computer Interactions</option>
-                    <option value="cg">Computer Graphics</option>
-                    <option value="is">Information Security</option>
-                    <option value="ndc">Networks and Distributed Computing</option>
-                    <option value="visa">Visualization and Analytics</option>
-                    <option value="none">None</option>
+                    <option value="{{  user.getConcen() }}">{{  user.getConcen() }}</option>
+                    <option value="Computer Game Development">Computer Game Development</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                    <option value="Theoretical Computer Science">Theoretical Computer Science</option>
+                    <option value="Scientific Computation">Scientific Computation</option>
+                    <option value="Human-Computer Interactions">Human-Computer Interactions</option>
+                    <option value="Computer Graphics">Computer Graphics</option>
+                    <option value="Information Security">Information Security</option>
+                    <option value="Networks and Distributed Computing">Networks and Distributed Computing</option>
+                    <option value="Visualization and Analytics">Visualization and Analytics</option>
+                    <option value="None">None</option>
                 </select>
             <br>
             <br>
@@ -103,7 +103,7 @@
             <br>
             <label for="desc">Priority</label>
             <select name="priority" id="priority">
-                <option value="userP">{{user.getPriority()}}</option>
+                <option value={{user.getPriority()}}>{{user.getPriority()}}</option>
 				<option value="1">Year</option>
 				<option value="2">Major</option>
 				<option value="3">Concentration</option>
@@ -112,11 +112,17 @@
 			<br>
 
             <label for="desc">Description</label>
-			<input type="text" id="descrip" name="descrip" placeholder="{{  user.getDescription() }}"><br><br>
+			<input type="text" id="descrip" name="descrip" value="{{  user.getDescription() }}"><br><br>
 
 
             <br>
 			<button type="submit" class="button">Save and Submit</button>
+
+			<button class="button">
+				<a href = "/MainPage"> 
+					Go Back
+				</a>
+				</button>
 			
 	</form> 
     </div>

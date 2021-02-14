@@ -36,7 +36,17 @@ def matches():
     user = request.cookies.get('username')
     mm = Match(data.readUser(user),data.getPersons())
     topMatches = mm.match()
-    return render_template("matches.html", matches = topMatches)
+
+    keys = data.getUsers()
+
+    userNames = []
+
+    for person in topMatches:
+        for key in keys:
+            if (data.readUser(key).isEqual(person)):
+                userNames.append(key)
+
+    return render_template("matches.html", iterator = range(0,len(topMatches)),matches = topMatches, users = userNames)
 
 
 @app.route("/createAccount", methods = ['POST','GET'])
@@ -57,9 +67,15 @@ def createProfile(user = None):
 def editProfile():
     user = request.cookies.get('username')
     if request.method == 'POST':
-        print("HELLO")
         changePerson(request.form,createPerson(request.form),user)
     return render_template("editProfile.html", user = data.readUser(user))
+
+@app.route("/chat/<other>", methods = ['POST','GET'])
+def createChat(other = None):
+    user = request.cookies.get('username')
+    currentChat = data.getChat(user,other)
+    return render_template("chat.html", chat = currentChat)
+
 
 def addPerson(form,person):
     user = request.form['username']
