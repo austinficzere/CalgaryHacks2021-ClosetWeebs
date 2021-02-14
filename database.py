@@ -21,6 +21,9 @@ class Database:
     def isUserPassValid(self, username,password):
         return (username,password) in self.users
 
+    def getUsers(self):
+        return self.persons.keys()
+
     def getPersons(self):
         return list(self.persons.values())
 
@@ -67,5 +70,3 @@ class Database:
     def writeUsers(self):
         with open(self.LOGIN, 'wb') as output:
             pickle.dump(self.users, output, pickle.HIGHEST_PROTOCOL)
-
-    
