@@ -1,0 +1,32 @@
+<!DOCTYLE html>
+<html>
+<head>
+    	<title>Profile</title>
+	<link href = "web.css" rel = "stylesheet">
+</head>
+
+
+
+	<h2>Your Profile</h2>
+	<form method="POST"> 
+		<div class="container">
+			Name: {{  user.getName() }}
+			<br>
+			Year of Study: {{  user.getYear() }}
+			<br>
+			Major:{{  user.getMajor() }}
+			<br>
+			Concentration: {{  user.getConcen() }}
+			<br>
+			Interests: {{  user.getInterests }}
+			<br>
+			Matching Criteria: {{  user.Priority }}
+			<br>
+			Description: {{  user.getDescription }}
+      		
+
+			
+	</form> 
+
+</body>
+</html>

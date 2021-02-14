@@ -22,6 +22,7 @@ def login():
 @app.route("/MatchPage.html")
 def match():
     user = request.cookies.get('username')
+    print(data.readUser(user).toString())
     return render_template("MatchPage.html")
 
 def loginValidate(form):
@@ -44,7 +45,8 @@ def createAccount():
 @app.route("/users/<user>")
 def createProfile(user = None):
     print(user)
-    render_template("profileTemplate.html",user = data.readUser(user))
+    print(data.readUser(user))
+    return render_template("profileTemplate.html",user = data.readUser(user))
 
 
 def addPerson(form,person):
