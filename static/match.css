@@ -9,6 +9,9 @@ body {
     min-height: 160vh;
 
 }
+.label {
+    color: #888;
+}
 
 .panel {
     background-color: white;
@@ -16,22 +19,10 @@ body {
     padding: 15px 25px;
     width: 100%;
     max-width: 960px;
-    max-height: 75%; 
+    max-height: 50%; 
     display: flex;
     flex-direction: column;
     text-align: center;
     text-transform: uppercase;
 	color: #016ff9;
 }
-
-.button{
-    border: 1px solid #888;
-    border-radius: 10px;
-    color: #348efe;
-    display: inline-block;
-    padding: 15px 35px;
-    text-decoration: none;
-    margin: 25px 0;
-    transition: background-color 200ms ease-in-out;
-}
-
