@@ -47,26 +47,26 @@ class Match:
             if self.person.getYear() == indiv.getYear():
                 if pri == 1:
                     points[counter] += 5
-                    copyPoints[counter] += 5
+                    # copyPoints[counter] += 5
                 else:
                     points[counter] += 1
-                    copyPoints[counter] += 1
+                    # copyPoints[counter] += 1
 
             if self.person.getMajor() == indiv.getMajor():
                 if pri == 2:
                     points[counter] += 5
-                    copyPoints[counter] += 5
+                    # copyPoints[counter] += 5
                 else:
                     points[counter] += 1
-                    copyPoints[counter] += 5
+                    # copyPoints[counter] += 1
 
             if self.person.getConcen() == indiv.getConcen():
                 if pri == 3:
                     points[counter] += 5
-                    copyPoints[counter] += 5
+                    # copyPoints[counter] += 5
                 else:
                     points[counter] += 1
-                    copyPoints[counter] += 5
+                    # copyPoints[counter] += 1
 
             for course in self.person.getClasses():
                 for coursee in indiv.getClasses():
@@ -76,20 +76,21 @@ class Match:
                             copyPoints[counter] += 5
                         else:
                             points[counter] += 1
-                            copyPoints[counter] += 5
+                            # copyPoints[counter] += 1
 
             for interest in self.person.getInterests():
                 for interestt in indiv.getInterests():
                     if interest == interestt:
                         if pri == 5:
                             points[counter] += 5
-                            copyPoints[counter] += 5
+                            # copyPoints[counter] += 5
                         else:
                             points[counter] += 1
-                            copyPoints[counter] += 5
+                            # copyPoints[counter] += 1
 
             counter += 1
         
+        copyPoints = copy.deepcopy(points)
         print(points)
         print(copyPoints)
         return self.bubbleSort(points, copyPoints, copyPeople, recommended)
