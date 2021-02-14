@@ -1,0 +1,118 @@
+<!DOCTYLE html>
+<html>
+<head>
+    	<title>Profile</title>
+	<link href = "{{ url_for('static', filename='edit.css') }}" rel = "stylesheet">
+</head>
+
+<body>
+    <div class = "panel">
+	<h2>Your Profile</h2>
+	<form method="POST"> 
+		<div class="container">
+
+            <label for="name">Name</label>
+			<br>
+      			<input type="text"  name="name" placeholder={{  user.getName() }}>
+			<br>
+            
+            <br>
+      			<label for="year">Year of Study</label>
+				  <br>
+				  <select name="year+" class = "dropDown" id="year+">
+    				<option value="userYear">{{  user.getYear() }}</option>
+                    <option value="2">1st Year</option>
+    				<option value="2">2nd Year</option>
+    				<option value="3">3rd Year</option>
+    				<option value="4">4th Year</option>
+					<option value="5">5+ Year</option>
+  				</select>
+			<br>
+
+			<br>
+			<label for="major">Major</label>
+			<br>
+      			<input type="text" placeholder={{ user.getMajor() }} name="major" required>
+        		<br>
+                <br>
+            
+            <label for="concen">Concentration</label>
+            <br>
+                <select name="concen" id="concen">
+                    <option value="userCon">{{  user.getConcen() }}</option>
+                    <option value="cgd">Computer Game Development</option>
+                    <option value="seng">Software Engineering</option>
+                    <option value="tcs">Theoretical Computer Science</option>
+                    <option value="scomp">Scientific Computation</option>
+                    <option value="hcint">Human-Computer Interactions</option>
+                    <option value="cg">Computer Graphics</option>
+                    <option value="is">Information Security</option>
+                    <option value="ndc">Networks and Distributed Computing</option>
+                    <option value="visa">Visualization and Analytics</option>
+                    <option value="none">None</option>
+                </select>
+            <br>
+            <br>
+
+            <label for="interests">Your selections</label>
+            <label for="userSel">{{ 
+                user.getInterests()
+            }}</label>
+
+            <br>
+            <label for="interests">Re-Select your interests</label>
+            <br>
+			<br>
+			<div>
+  				<input type="checkbox" id="int1" name="sport">
+  				<label for="sport">Sports</label>
+			</div>
+
+			<div>
+  				<input type="checkbox" id="int2" name="game">
+  				<label for="game">Gaming</label>
+			</div>
+
+			<div>
+  				<input type="checkbox" id="int3" name="read">
+  				<label for="read">Reading</label>
+			</div>
+
+			<div>
+  				<input type="checkbox" id="int4" name="code">
+  				<label for="code">Coding</label>
+			</div>
+
+			<div>
+  				<input type="checkbox" id="int5" name="music">
+  				<label for="music">Music</label>
+			</div>
+
+			<div>
+  				<input type="checkbox" id="int6" name="stock">
+  				<label for="stock">Stock</label>
+			</div>
+			
+			<div>
+  				<input type="checkbox" id="int7" name="movies">
+  				<label for="movies">Movies</label>
+			</div>
+			<br>
+
+
+			<br>
+            <label for="desc">Description</label>
+			<input type="text" id="descrip" name="descrip" placeholder={{  user.getDescription() }}><br><br>
+
+            <br>
+      		<button type="submit" class="button">
+                <a href = "editProfile"> 
+                    Save and Submit
+                </a></button>
+
+			
+	</form> 
+    </div>
+
+</body>
+</html>
