@@ -34,8 +34,8 @@ def createAccount():
     return render_template('createAccount.html')
 
 @app.route("/users/<name>")
-def createProfile(name = None):
-    render_template("profileTemplate.html",user = data.getUser(name))
+def createProfile(user = None):
+    render_template("profileTemplate.html",user = data.readUser(name))
 
 
 def addPerson(form,person):
